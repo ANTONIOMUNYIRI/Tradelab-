@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>TradeLab Demo – Practice Binary Trading</title>
+<link rel="stylesheet" href="css/style.css"></head><body>
+<header class="top">
+ <span class="logo">TradeLab</span><span class="badge">Demo account</span>
+ <nav class="nav"><a href="#trade">Trade</a><a href="#how">How it works</a><a href="#learn">Learn</a></nav>
+ <span class="sp"></span>
+ <div class="bal"><small>Virtual balance</small><b id="bal">$10,000.00</b></div>
+ <button class="ghost" id="join">Create demo account</button><button class="ghost" id="snd" aria-pressed="false">Sound off</button><button class="ghost" id="thm">Switch theme</button><button class="ghost" id="reset">Reset balance</button>
+</header>
+<main>
+ <section class="hero">
+  <div><h1>Learn binary trading with live-style charts and no real money at risk</h1>
+   <p>Practice calling price moves on four simulated markets with a $10,000 virtual balance, get feedback from an AI coach, and learn how the odds really work before you ever consider a real account.</p>
+   <button class="cta" id="cta">Start practicing</button></div>
+  <div class="hs"><div><b>$10,000</b><small>virtual balance</small></div><div><b>85%</b><small>payout on a win</small></div><div><b>30s to 5m</b><small>trade expiries</small></div><div><b>4</b><small>simulated markets</small></div></div>
+ </section>
+ <div id="trade"></div>
+ <div class="strip" id="strip"></div>
+ <section class="panel chartbox">
+  <div class="tabs" id="tabs" role="tablist"></div>
+  <div class="px"><b id="price">–</b><span id="chg">–</span></div>
+  <div class="cvwrap"><canvas id="cv" aria-label="Live simulated price chart"></canvas><div id="tip"></div></div>
+ </section>
+ <aside class="panel side">
+  <div><label>Expiry</label><div class="seg" id="exp"></div></div>
+  <div><label for="stake">Stake (virtual $)</label>
+   <input class="stake" id="stake" type="number" min="1" step="1" value="100" inputmode="numeric">
+   <div class="chips" id="chips"></div></div>
+  <div class="ret"><span>Payout if correct</span><b id="ret">$185.00</b></div>
+  <div class="go"><button class="hi" id="hi">Higher<kbd>↑ or H</kbd></button><button class="lo" id="lo">Lower<kbd>↓ or L</kbd></button></div>
+  <div class="streak" id="streak"></div>
+  <div class="stats"><div><small>Trades</small><b id="sT">0</b></div><div><small>Win rate</small><b id="sW">–</b></div><div><small>Net P/L</small><b id="sP">$0.00</b></div></div>
+ </aside>
+ <section class="lower">
+  <div class="panel"><h2>Open trades</h2><div class="scroll" id="open"></div></div>
+  <div class="panel"><h2>Trade history</h2><div class="scroll" id="hist"></div></div>
+ </section>
+ <section class="lower">
+  <div class="panel" id="coach" hidden><h2>AI coach</h2><div class="coachbody">
+   <div class="qa"><button class="ghost" data-a="chart">Read this chart</button><button class="ghost" data-a="review">Review my trades</button><button class="ghost" data-a="risk">Check my risk</button></div>
+   <div class="ask"><input id="q" placeholder="Ask about binary options, risk or strategy" aria-label="Ask the AI coach"><button class="ghost" id="askb">Ask</button></div>
+   <div class="ans" id="ans" aria-live="polite">Pick a button or ask a question. The coach explains concepts and reviews your practice results. It can’t predict prices, because the prices here are random.</div></div></div>
+  <div class="panel"><h2>Simulated market activity</h2><div class="feed" id="feed" aria-label="Simulated trades from demo traders"></div></div>
+ </section>
+ <section class="sec" id="how"><h2>How a trade works</h2><div class="steps">
+  <div><b>1. Choose a market and expiry</b><span>Pick an asset from the strip, then 30 seconds, 1 minute or 5 minutes.</span></div>
+  <div><b>2. Set a stake and make your call</b><span>Enter a virtual stake and press Higher or Lower. The entry price is locked in at that moment.</span></div>
+  <div><b>3. Wait for expiry</b><span>If the price finished on your side you win 85% of your stake. If not, you lose the stake. A tie returns it.</span></div></div></section>
+ <section class="sec" id="learn"><h2>Learn before you trade</h2>
+  <details><summary>What is a binary option?</summary><p>A binary option is an all-or-nothing contract on whether a price will be above or below its starting level when a timer ends. The stake and the possible payout are fixed in advance, so there is no partial win.</p></details>
+  <details open><summary>Why is it hard to come out ahead?</summary><p>A win pays less than the stake you risk, so you must win more than half your trades just to break even. Use the calculator to see how much more.</p>
+   <div class="be"><label for="pay">Payout on a win (%)</label><input class="stake" id="pay" type="number" min="1" max="500" value="85"><span>Break-even win rate: <b id="be">54.1%</b></span></div></details>
+  <details><summary>How do I avoid scams?</summary><p>Be wary of anyone promising guaranteed profits, “bots” that win every time, pressure to deposit quickly, or withdrawals that are delayed or blocked. In Kenya, only firms licensed by the Capital Markets Authority may offer online forex trading, so check the CMA’s register before sending money to anyone.</p></details>
+  <details><summary>How much should I risk per trade?</summary><p>Most risk guidance suggests keeping each stake to a small share of your balance, often 1 to 2 percent, so a losing streak does not wipe you out. Try it here first and ask the AI coach to check your risk.</p></details></section>
+ <p class="note">Practice platform only. Prices are simulated and funds are virtual, with no cash value. Nothing can be deposited or withdrawn. This is not investment advice, and real binary options carry a high risk of loss.</p>
+</main>
+<div id="toast" role="status"></div>
+<dialog id="dlg"><h3>Create a demo account</h3><p>No email or password needed. Your name is saved only in this browser, and the account holds virtual funds only.</p><input id="nm" class="stake" maxlength="24" placeholder="Your name" aria-label="Your name"><div class="dlgb"><button class="ghost" id="dno">Cancel</button><button class="cta" id="dyes">Save name</button></div></dialog>
+<script src="js/app.js"></script></body></html>
